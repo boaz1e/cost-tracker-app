@@ -3,8 +3,14 @@ exports.getDevelopers = (req, res) => {
     {
       firstname: "Boaz",
       lastname: "Yunayev",
-      id: 322271271,
+      id: 111111234,
       email: "boazunive@gmail.com",
+    },
+    {
+      firstname: "Sahar",
+      lastname: "Levy",
+      id: 111100000,
+      email: "xvruii@gmail.com",
     },
   ];
   res.status(200).json(developers);
