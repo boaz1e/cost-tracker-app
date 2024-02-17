@@ -1,15 +1,26 @@
 const Cost = require("../models/cost");
 
 const formatReport = (report) => {
-  return report.map((item) => ({
-    user_id: item.user_id,
-    year: item.year,
-    month: item.month,
-    day: item.day,
-    description: item.description,
-    category: item.category,
-    sum: item.sum,
-  }));
+  const formattedReport = {
+    food: [],
+    health: [],
+    housing: [],
+    sport: [],
+    education: [],
+    transportation: [],
+    other: [],
+  };
+
+  report.forEach((item) => {
+    const category = item.category;
+    formattedReport[category].push({
+      day: item.day,
+      description: item.description,
+      sum: item.sum,
+    });
+  });
+
+  return formattedReport;
 };
 
 exports.getReport = async (req, res) => {
