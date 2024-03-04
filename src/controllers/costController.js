@@ -1,5 +1,9 @@
 const Cost = require("../models/cost");
 
+function generateId() {
+  return Math.random().toString(36).substr(2, 9);
+}
+
 exports.addCost = async (req, res) => {
   try {
     const { user_id, year, month, day, description, category, sum } = req.body;
