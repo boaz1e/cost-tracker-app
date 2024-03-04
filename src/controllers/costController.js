@@ -20,7 +20,7 @@ exports.addCost = async (req, res) => {
     newCost.id = generateId();
 
     await newCost.save();
-    res.status(201).json({ id: newCost.id });
+    res.status(201).json({ id: newCost.id, requestData: req.body });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
