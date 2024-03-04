@@ -12,8 +12,11 @@ exports.addCost = async (req, res) => {
       category,
       sum,
     });
+
+    newCost.id = generateId();
+
     await newCost.save();
-    res.status(201).json(newCost);
+    res.status(201).json({ id: newCost.id });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
